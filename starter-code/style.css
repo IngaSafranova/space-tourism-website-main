@@ -9,12 +9,12 @@
   --clr-white: 0 0% 100%;
 
   /* font-sizes */
-  --fs-900: 9.375rem; /* better to use rem not px for accesible users. Px can overwrite people settings for zoom*/
-  --fs-800: 6.25rem;
-  --fs-700: 3.5rem; /* to get rem values divide given px values from 16*/
-  --fs-600: 2rem;
+  --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem); /* set min, max, and middle sizes. Middle size depends on screen width*/
+  --fs-800: 3.5rem;
+  --fs-700: 1.5rem; /* to get rem values divide given px values from 16*/
+  --fs-600: 1rem; /* better to use rem not px for accesible users. Px can overwrite people settings for zoom*/
   --fs-500: 1.75rem;
-  --fs-400: 1.125rem;
+  --fs-400: 0.9375rem;
   --fs-300: 1rem; /* 16px*/
   --fs-200: 0.875rem;
 
@@ -22,6 +22,26 @@
   --ff-serif: "Bellefair", serif;
   --ff-sans-cond: "Barlow Condensed", sans-serif;
   --ff-sans-normal: "Barlow", sans-serif;
+}
+@media (min-width: 35em) { /* 560px tablet size*/
+  root {
+   
+    --fs-800: 5rem;
+    --fs-700: 2.5rem;
+    --fs-600: 1.5rem;
+    --fs-400: 1rem;
+}
+}
+@media (min-width: 45em) { /* 720px biggest tablet */
+:root {
+  
+  --fs-800: 6.25rem;
+  --fs-700: 3.5rem; /* to get rem values divide given px values from 16*/
+  --fs-600: 2rem;
+  --fs-500: 1.75rem;
+  --fs-400: 1.125rem;
+  
+}
 }
 
 /* -------------------------*/
@@ -69,6 +89,8 @@ body {
   background-color: hsl(var(--clr-dark));
   line-height: 1.5; /* broser standart usually 1.4*/
   min-height: 100vh;
+  display: grid;
+  grid-template-rows:min-content 1fr ; /* makes first row as big as content*/
 }
 
 /*make images easier to work with*/
@@ -131,6 +153,24 @@ Sellect all but not first child */
   padding-inline: 2em; /* padding for left and right*/
   margin-inline: auto; /* to keep content in the middle*/
   max-width: 80rem;
+}
+.grid-container {
+  display: grid;
+  border: 5px solid green;
+}
+@media (min-width: 45em ){ /* 720px biggest tablet size*/
+  .grid-container {
+    column-gap: var(--container-gap, 2rem); /* to make a gap between 2 colums*/
+    grid-template-columns:minmax(2rem, 1fr)  minmax(0, 40rem) minmax(0, 40rem) minmax(2rem, 1fr); /* 2rem for padding on both sides, 1fr takes empty space so content stays in the middke of the screen all the time.Minmax(0, 60rem) makes middle colum responsive*/
+  }
+  .grid-container > *:first-child {
+    grid-column: 2;
+    border: 1px solid red;
+  }
+  .grid-container > *:last-child {
+    grid-column: 3;
+    border: 1px solid yellow;
+  }
 }
 
 .sr-only {
