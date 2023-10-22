@@ -332,7 +332,20 @@ Sellect all but not first child */
   transform: scale(1.5);
 }
 
+      /* Primary-header styles*/
+
+  .logo {
+    margin: 1.5rem clamp(1.5rem, 5vw, 3.5rem)
+    
+  }  
+  
+  .primary-header {
+    justify-content: space-between;
+    align-items: center;
+  }
+
 .primary-navigation {
+  --gap: clamp(1.5rem, 5vw, 3.5rem);
   --underline-gap: 2rem;
   list-style: none;
   padding: 0;
@@ -350,6 +363,13 @@ Sellect all but not first child */
 }  
 .mobile-nav-toggle {
   display: none;
+}
+.primary-navigation a {
+  text-decoration: none;
+}
+.primary-navigation a > span {
+  font-weight: 700;
+  margin-right: 0.5rem;
 }
 
 @media (max-width: 35rem) {
@@ -407,12 +427,46 @@ Sellect all but not first child */
     border: 0;
   }
 }
-.primary-navigation a {
-  text-decoration: none;
+
+/* The padding for headder between screen sizes can be done this way as well: 
+*/
+@media (min-width: 35em) {
+    .primary-navigation {
+        padding-inline: clamp(3rem, 7vw, 7rem);
+    }
 }
+
+
+
+
+
+@media (min-width : 35em) and (max-width: 44.999em) {
+
+/* to remove numbers from tablet size header*/
 .primary-navigation a > span {
-  font-weight: 700;
-  margin-right: 0.5rem;
+  display:none;
+}
+}
+
+@media (min-width: 45em){
+.primary-navigation {
+  margin-block: 2rem;
+}
+/* to put line between logo and header*/
+.primary-header::after {
+  content: '';
+  display: block;
+  position: relative;
+  height: 1px;
+  width: 100%;
+  background: hsl(var(--clr-white) / 0.25);
+  margin-right: -2.5rem;
+  order: 1; /* Controls the order in which flex appear within flex container*/
+}
+nav {
+  order: 2;
+}
+
 }
 .underline-indicators > * {
   /* using * instead of <li> so its easy to reuse */
