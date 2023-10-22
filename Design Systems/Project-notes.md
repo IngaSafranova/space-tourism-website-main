@@ -22,3 +22,12 @@ They let easily modify colors, especially HSL.
 1. Make white 0r any color  backgraound with opacity 0.1
 2. Use backdrop-filter: blur(1rem)
 3. If broser do not support neew features nedd to put them @support() and leave default value in main styles.
+
+      ACCECABILITY AND SCREEN READERS
+
+ - To help screenreaders use relative and informative tags (header, nav, main,footer etc.).
+ -  To hide text from screenreaders use attribute 'aria-hidden' = 'true' on the element.
+ - To hide an element from people and use it for screen readers only use class = 'sr-only'.
+ - All aria attributes are for screen readers.
+
+ For people who are using TAB to move around the page use a link at the top of the page to move down to content. Hide this link from view and put back when in focus.    

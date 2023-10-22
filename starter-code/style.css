@@ -205,6 +205,21 @@ Sellect all but not first child */
   border: 0;
 }
 
+.skip-to-content{
+  position: absolute;
+  z-index: 2500;
+background: hsl(var(--clr-white));
+color: hsl(var(--clr-dark));
+padding: .5rem 1em;
+margin-inline: auto;
+/* to hide from screen */
+transform: translateY(-100%);
+transition:transform 250ms ease-in;
+}
+.skip-to-content:focus {
+  transform: translateY(0);
+}
+
 /* COLORS */
 
 .bg-dark {
