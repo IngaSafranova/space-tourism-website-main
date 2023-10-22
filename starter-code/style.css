@@ -9,7 +9,11 @@
   --clr-white: 0 0% 100%;
 
   /* font-sizes */
-  --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem); /* set min, max, and middle sizes. Middle size depends on screen width*/
+  --fs-900: clamp(
+    5rem,
+    8vw + 1rem,
+    9.375rem
+  ); /* set min, max, and middle sizes. Middle size depends on screen width*/
   --fs-800: 3.5rem;
   --fs-700: 1.5rem; /* to get rem values divide given px values from 16*/
   --fs-600: 1rem; /* better to use rem not px for accesible users. Px can overwrite people settings for zoom*/
@@ -23,25 +27,24 @@
   --ff-sans-cond: "Barlow Condensed", sans-serif;
   --ff-sans-normal: "Barlow", sans-serif;
 }
-@media (min-width: 35em) { /* 560px tablet size*/
+@media (min-width: 35em) {
+  /* 560px tablet size*/
   root {
-   
     --fs-800: 5rem;
     --fs-700: 2.5rem;
     --fs-600: 1.5rem;
     --fs-400: 1rem;
+  }
 }
-}
-@media (min-width: 45em) { /* 720px biggest tablet */
-:root {
-  
-  --fs-800: 6.25rem;
-  --fs-700: 3.5rem; /* to get rem values divide given px values from 16*/
-  --fs-600: 2rem;
-  --fs-500: 1.75rem;
-  --fs-400: 1.125rem;
-  
-}
+@media (min-width: 45em) {
+  /* 720px biggest tablet */
+  :root {
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem; /* to get rem values divide given px values from 16*/
+    --fs-600: 2rem;
+    --fs-500: 1.75rem;
+    --fs-400: 1.125rem;
+  }
 }
 
 /* -------------------------*/
@@ -90,7 +93,8 @@ body {
   line-height: 1.5; /* broser standart usually 1.4*/
   min-height: 100vh;
   display: grid;
-  grid-template-rows:min-content 1fr ; /* makes first row as big as content*/
+  grid-template-rows: min-content 1fr; /* makes first row as big as content*/
+  overflow-x: hidden;
 }
 
 /*make images easier to work with*/
@@ -150,7 +154,6 @@ Sellect all but not first child */
 
 .flow > * + * {
   margin-top: 1rem;
-  
 }
 .container {
   padding-inline: 2em; /* padding for left and right*/
@@ -159,34 +162,34 @@ Sellect all but not first child */
 }
 .grid-container {
   display: grid;
-  border: 5px solid green;
   text-align: center;
   place-items: center;
   padding-inline: 1rem;
 }
 .grid-container * {
-  max-width: 50ch;      /* Makes text not to be too big. CH - number 0 size*/
+  max-width: 50ch; /* Makes text not to be too big. CH - number 0 size*/
 }
 
-@media (min-width: 45em ){ /* 720px biggest tablet size*/
+@media (min-width: 45em) {
+  /* 720px biggest tablet size*/
   .grid-container {
     text-align: left;
     column-gap: var(--container-gap, 2rem); /* to make a gap between 2 colums*/
-    grid-template-columns:minmax(1rem, 1fr)  minmax(0, 40rem) minmax(0, 40rem) minmax(1rem, 1fr); /* 2rem for padding on both sides, 1fr takes empty space so content stays in the middke of the screen all the time.Minmax(0, 60rem) makes middle colum responsive*/
+    grid-template-columns: minmax(1rem, 1fr) minmax(0, 40rem) minmax(0, 40rem) minmax(
+        1rem,
+        1fr
+      ); /* 2rem for padding on both sides, 1fr takes empty space so content stays in the middke of the screen all the time.Minmax(0, 60rem) makes middle colum responsive*/
   }
   .grid-container > *:first-child {
     grid-column: 2;
-    
   }
   .grid-container > *:last-child {
     grid-column: 3;
-   
   }
   .grid-container--home {
-    padding-bottom:max(6rem, 10vh);
-  align-items: end;
+    padding-bottom: max(6rem, 10vh);
+    align-items: end;
   }
-  
 }
 
 .sr-only {
@@ -268,13 +271,13 @@ Sellect all but not first child */
   font-size: var(--fs-500); /* 28px */
 }
 .fs-400 {
-  font-size: var(--fs-400);   /* 20px */
-}                            
+  font-size: var(--fs-400); /* 20px */
+}
 .fs-300 {
-  font-size: var(--fs-300);   /* 16px */
-}                              /* default*/
+  font-size: var(--fs-300); /* 16px */
+} /* default*/
 .fs-200 {
-  font-size: var(--fs-200);   /* 14px */
+  font-size: var(--fs-200); /* 14px */
 }
 
 .fs-900,
@@ -288,13 +291,13 @@ Sellect all but not first child */
   font-family: var(--ff-sans-cond);
   font-size: var(--fs-500);
   text-transform: uppercase;
-  letter-spacing: 4.72px; 
+  letter-spacing: 4.72px;
 }
 
 .numbered-title span {
-  margin-right: .5em;
+  margin-right: 0.5em;
   font-weight: 700;
-  color: hsl( var(--clr-white) / .25);
+  color: hsl(var(--clr-white) / 0.25);
 }
 /* -------------------------*/
 /* COMPONENTS CLASSES */
@@ -308,99 +311,163 @@ Sellect all but not first child */
   place-items: center; /* Shorthand for justify-items and align-items */
   border-radius: 50%;
   aspect-ratio: 1/1; /* makes button square*/
-  padding:0 2em;
+  padding: 0 2em;
   text-decoration: none;
 }
 
 .large-button::after {
-  content: '';
+  content: "";
   position: absolute;
   z-index: -1;
-  background: hsl( var(--clr-white) / .15);
+  background: hsl(var(--clr-white) / 0.15);
   width: 100%;
   height: 100%;
   border-radius: 50%;
   opacity: 0;
   transition: opacity 500ms linear, transform 750ms ease-in-out;
 }
-.large-button:hover::after ,
+.large-button:hover::after,
 .large-button:focus::after {
   opacity: 1;
-transform: scale(1.5);
+  transform: scale(1.5);
 }
 
 .primary-navigation {
-  --gap: 8rem;
   --underline-gap: 2rem;
   list-style: none;
   padding: 0;
   margin: 0;
+  background: hsl( var(--clr-dark)/ 0.95); /* default with no blur if broser not supports*/
+  
+}
+/* Frosted glass efect*/
+
+  @supports (backdrop-filter: blur(1rem)) {
+.primary-navigation {
+  background: hsl(var(--clr-white) / 0.05);
+  backdrop-filter: blur(1rem);
+}
+}  
+.mobile-nav-toggle {
+  display: none;
+}
+
+@media (max-width: 35rem) {
+  .primary-navigation {
+    --underline-gap: 0.5rem;
+    position: fixed;
+    z-index: 1000;
+    inset: 0 0 0 30%; /* Shorthand to set top bottom right and left position of flex item*/
+    
+    list-style: none;
+    padding: min(20rem, 15vh) 2rem;
+    margin: 0;
+    flex-direction: column;
+
+    /* to put drop down menu into icon*/
+
+    transform: translateX(100%);
+  }
+
+  /* to open drop down menu*/
+  .primary-navigation[data-visible="true"]{
+    transform: translateX(0);
+    transition: transform 500ms ease-in-out;
+  }
+
+  
+  .mobile-nav-toggle {
+    display: block;
+    position: absolute;
+    z-index: 2000;
+    right: 1rem;
+    top: 2rem;
+    background: transparent;
+    border: 0;
+
+    /* to put icon without using html*/
+
+    background-image: url(./assets/shared/icon-hamburger.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 1.5rem;
+    aspect-ratio: 1;
+  }
+  
+  .mobile-nav-toggle[aria-expanded='true'] {
+    background-image: url(./assets/shared/icon-close.svg);
+    }
+
+   .mobile-nav-toggle:focus-visible {
+    outline: 5px solid white;
+    outline-offset: 5px;
+   } 
+
+  .primary-navigation.underline-indicators > .active {
+    border: 0;
+  }
 }
 .primary-navigation a {
   text-decoration: none;
 }
 .primary-navigation a > span {
   font-weight: 700;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
-.underline-indicators > * {  /* using * instead of <li> so its easy to reuse */
-padding: var(--underline-gap, 1rem) 0;
-cursor: pointer;
-border: 0;
-border-bottom: .2rem solid hsl(var(--clr-white)/ 0);
-
+.underline-indicators > * {
+  /* using * instead of <li> so its easy to reuse */
+  padding: var(--underline-gap, 1rem) 0;
+  cursor: pointer;
+  border: 0;
+  border-bottom: 0.2rem solid hsl(var(--clr-white) / 0);
 }
 .underline-indicators > *:hover,
 .underline-indicators > *:focus {
-    border-color: hsl( var(--clr-white) / .5);
+  border-color: hsl(var(--clr-white) / 0.5);
 }
 
 .underline-indicators > .active,
-.underline-indicators > [aria-selected ="true"]
-{
-  color: hsl( var(--clr-white) / 1);
-  border-color: hsl( var(--clr-white) / 1);
+.underline-indicators > [aria-selected="true"] {
+  color: hsl(var(--clr-white) / 1);
+  border-color: hsl(var(--clr-white) / 1);
 }
 .tab-list {
   --gap: 2rem;
 }
-.dot-indicators > *{
+.dot-indicators > * {
   cursor: pointer;
   border: 0;
   border-radius: 50%;
-  aspect-ratio:1;
-  padding: .5rem;
-  background-color:hsl( var(--clr-white) / .25) ;
-  
-
-  
+  aspect-ratio: 1;
+  padding: 0.5rem;
+  background-color: hsl(var(--clr-white) / 0.25);
 }
 .dot-indicators > *:hover,
 .dot-indicators > *:focus {
-    background-color: hsl( var(--clr-white) / .5);
+  background-color: hsl(var(--clr-white) / 0.5);
 }
 
 .dot-indicators > [aria-selected="true"] {
-  background-color: hsl( var(--clr-white) / 1); 
+  background-color: hsl(var(--clr-white) / 1);
 }
 
-.number-indicators > * { /* selecting kids of number-indicator*/
+.number-indicators > * {
+  /* selecting kids of number-indicator*/
   border-radius: 50%;
   background-color: hsl(var(--clr-dark));
   color: hsl(var(--clr-white));
   padding: 1rem;
-  border: 1px solid hsl( var(--clr-white)/.25);
+  border: 1px solid hsl(var(--clr-white) / 0.25);
   aspect-ratio: 1;
   place-items: center;
   display: flex;
-
 }
 .number-indicators > *:hover,
 .number-indicators > *:focus {
-  border: 1px solid hsl( var(--clr-white)/.75)
+  border: 1px solid hsl(var(--clr-white) / 0.75);
 }
 .number-indicators > [aria-selected="true"] {
-  background-color: hsl( var(--clr-white) / 1); 
+  background-color: hsl(var(--clr-white) / 1);
   color: hsl(var(--clr-dark));
 }
 /* -------------------------*/
@@ -414,18 +481,16 @@ body {
 /* HOME PAGE*/
 
 .home {
-  
-  background-image:url(./assets/home/background-home-mobile.jpg) ;
+  background-image: url(./assets/home/background-home-mobile.jpg);
 }
 @media (min-width: 35rem) {
   .home {
-   background-position: center center; 
-    background-image:url(./assets/home/background-home-tablet.jpg) ;
+    background-position: center center;
+    background-image: url(./assets/home/background-home-tablet.jpg);
   }
 }
 @media (min-width: 45rem) {
   .home {
-  
-    background-image:url(./assets/home/background-home-desktop.jpg) ;
+    background-image: url(./assets/home/background-home-desktop.jpg);
   }
 }
