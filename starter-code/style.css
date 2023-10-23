@@ -17,7 +17,7 @@
   --fs-800: 3.5rem;
   --fs-700: 1.5rem; /* to get rem values divide given px values from 16*/
   --fs-600: 1rem; /* better to use rem not px for accesible users. Px can overwrite people settings for zoom*/
-  --fs-500: 1.75rem;
+  --fs-500: 1rem;
   --fs-400: 0.9375rem;
   --fs-300: 1rem; /* 16px*/
   --fs-200: 0.875rem;
@@ -33,6 +33,7 @@
     --fs-800: 5rem;
     --fs-700: 2.5rem;
     --fs-600: 1.5rem;
+    --ff-500: 1.5rem;
     --fs-400: 1rem;
   }
 }
@@ -160,37 +161,6 @@ Sellect all but not first child */
   margin-inline: auto; /* to keep content in the middle*/
   max-width: 80rem;
 }
-.grid-container {
-  display: grid;
-  text-align: center;
-  place-items: center;
-  padding-inline: 1rem;
-}
-.grid-container * {
-  max-width: 50ch; /* Makes text not to be too big. CH - number 0 size*/
-}
-
-@media (min-width: 45em) {
-  /* 720px biggest tablet size*/
-  .grid-container {
-    text-align: left;
-    column-gap: var(--container-gap, 2rem); /* to make a gap between 2 colums*/
-    grid-template-columns: minmax(1rem, 1fr) minmax(0, 40rem) minmax(0, 40rem) minmax(
-        1rem,
-        1fr
-      ); /* 2rem for padding on both sides, 1fr takes empty space so content stays in the middke of the screen all the time.Minmax(0, 60rem) makes middle colum responsive*/
-  }
-  .grid-container > *:first-child {
-    grid-column: 2;
-  }
-  .grid-container > *:last-child {
-    grid-column: 3;
-  }
-  .grid-container--home {
-    padding-bottom: max(6rem, 10vh);
-    align-items: end;
-  }
-}
 
 .sr-only {
   position: absolute; /* settings for screen-reader elements
@@ -205,16 +175,16 @@ Sellect all but not first child */
   border: 0;
 }
 
-.skip-to-content{
+.skip-to-content {
   position: absolute;
   z-index: 2500;
-background: hsl(var(--clr-white));
-color: hsl(var(--clr-dark));
-padding: .5rem 1em;
-margin-inline: auto;
-/* to hide from screen */
-transform: translateY(-100%);
-transition:transform 250ms ease-in;
+  background: hsl(var(--clr-white));
+  color: hsl(var(--clr-dark));
+  padding: 0.5rem 1em;
+  margin-inline: auto;
+  /* to hide from screen */
+  transform: translateY(-100%);
+  transition: transform 250ms ease-in;
 }
 .skip-to-content:focus {
   transform: translateY(0);
@@ -347,17 +317,16 @@ transition:transform 250ms ease-in;
   transform: scale(1.5);
 }
 
-      /* Primary-header styles*/
+/* Primary-header styles*/
 
-  .logo {
-    margin: 1.5rem clamp(1.5rem, 5vw, 3.5rem)
-    
-  }  
-  
-  .primary-header {
-    justify-content: space-between;
-    align-items: center;
-  }
+.logo {
+  margin: 1.5rem clamp(1.5rem, 5vw, 3.5rem);
+}
+
+.primary-header {
+  justify-content: space-between;
+  align-items: center;
+}
 
 .primary-navigation {
   --gap: clamp(1.5rem, 5vw, 3.5rem);
@@ -365,17 +334,18 @@ transition:transform 250ms ease-in;
   list-style: none;
   padding: 0;
   margin: 0;
-  background: hsl( var(--clr-dark)/ 0.95); /* default with no blur if broser not supports*/
-  
+  background: hsl(
+    var(--clr-dark) / 0.95
+  ); /* default with no blur if broser not supports*/
 }
 /* Frosted glass efect*/
 
-  @supports (backdrop-filter: blur(1rem)) {
-.primary-navigation {
-  background: hsl(var(--clr-white) / 0.05);
-  backdrop-filter: blur(1rem);
+@supports (backdrop-filter: blur(1rem)) {
+  .primary-navigation {
+    background: hsl(var(--clr-white) / 0.05);
+    backdrop-filter: blur(1rem);
+  }
 }
-}  
 .mobile-nav-toggle {
   display: none;
 }
@@ -393,7 +363,7 @@ transition:transform 250ms ease-in;
     position: fixed;
     z-index: 1000;
     inset: 0 0 0 30%; /* Shorthand to set top bottom right and left position of flex item*/
-    
+
     list-style: none;
     padding: min(20rem, 15vh) 2rem;
     margin: 0;
@@ -405,12 +375,11 @@ transition:transform 250ms ease-in;
   }
 
   /* to open drop down menu*/
-  .primary-navigation[data-visible="true"]{
+  .primary-navigation[data-visible="true"] {
     transform: translateX(0);
     transition: transform 500ms ease-in-out;
   }
 
-  
   .mobile-nav-toggle {
     display: block;
     position: absolute;
@@ -428,15 +397,15 @@ transition:transform 250ms ease-in;
     width: 1.5rem;
     aspect-ratio: 1;
   }
-  
-  .mobile-nav-toggle[aria-expanded='true'] {
-    background-image: url(./assets/shared/icon-close.svg);
-    }
 
-   .mobile-nav-toggle:focus-visible {
+  .mobile-nav-toggle[aria-expanded="true"] {
+    background-image: url(./assets/shared/icon-close.svg);
+  }
+
+  .mobile-nav-toggle:focus-visible {
     outline: 5px solid white;
     outline-offset: 5px;
-   } 
+  }
 
   .primary-navigation.underline-indicators > .active {
     border: 0;
@@ -446,42 +415,36 @@ transition:transform 250ms ease-in;
 /* The padding for headder between screen sizes can be done this way as well: 
 */
 @media (min-width: 35em) {
-    .primary-navigation {
-        padding-inline: clamp(3rem, 7vw, 7rem);
-    }
+  .primary-navigation {
+    padding-inline: clamp(3rem, 7vw, 7rem);
+  }
 }
 
-
-
-
-
-@media (min-width : 35em) and (max-width: 44.999em) {
-
-/* to remove numbers from tablet size header*/
-.primary-navigation a > span {
-  display:none;
-}
+@media (min-width: 35em) and (max-width: 44.999em) {
+  /* to remove numbers from tablet size header*/
+  .primary-navigation a > span {
+    display: none;
+  }
 }
 
-@media (min-width: 45em){
-.primary-navigation {
-  margin-block: 2rem;
-}
-/* to put line between logo and header*/
-.primary-header::after {
-  content: '';
-  display: block;
-  position: relative;
-  height: 1px;
-  width: 100%;
-  background: hsl(var(--clr-white) / 0.25);
-  margin-right: -2.5rem;
-  order: 1; /* Controls the order in which flex appear within flex container*/
-}
-nav {
-  order: 2;
-}
-
+@media (min-width: 45em) {
+  .primary-navigation {
+    margin-block: 2rem;
+  }
+  /* to put line between logo and header*/
+  .primary-header::after {
+    content: "";
+    display: block;
+    position: relative;
+    height: 1px;
+    width: 100%;
+    background: hsl(var(--clr-white) / 0.25);
+    margin-right: -2.5rem;
+    order: 1; /* Controls the order in which flex appear within flex container*/
+  }
+  nav {
+    order: 2;
+  }
 }
 .underline-indicators > * {
   /* using * instead of <li> so its easy to reuse */
@@ -562,4 +525,119 @@ body {
   .home {
     background-image: url(./assets/home/background-home-desktop.jpg);
   }
+}
+
+/* LAYOUT */
+
+.grid-container {
+  display: grid;
+  text-align: center;
+  place-items: center;
+  padding-inline: 2rem;
+  padding-bottom: 4rem;
+}
+.grid-container p:not([class]) { /* Use on p tag without class atribute*/
+  max-width: 50ch; /* Makes text not to be too big. CH - number 0 size*/
+}
+
+.numbered-title {
+  grid-area: alias-title;
+  margin-bottom: 3rem;
+  
+}
+/* Destination layout */
+
+.grid-container--destination {
+   --flow-space: 2rem; 
+  grid-template-areas:
+    "alias-title"
+    "alias-image"
+    "alias-tabs"
+    "alias-content";
+}
+
+.grid-container--destination > img {
+  grid-area: alias-image;
+  max-width: 60%;
+  
+}
+.grid-container--destination >.tab-list{
+  grid-area:alias-tabs;
+  margin-top: 2rem;
+
+}
+
+.grid-container--destination >.destination-info {
+  grid-area: alias-content;
+}
+.destination-info {
+  flex-direction: column;
+width: 80%;
+  justify-content: center;
+ 
+}
+
+.destination-meta {
+  flex-direction: column;
+  border-top: 1px solid hsl(var(--clr-white) / 0.1);
+  padding-top: 2.5rem;
+  margin-top: 2.5rem;
+  place-items: center;
+}
+.destination-meta p {
+  font-size: 1.75rem;
+}
+@media (min-width: 35rem) {
+  .numbered-title {
+    justify-self: start;
+    margin-top: 2rem;
+  }
+
+  .destination-meta {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
+
+
+@media (min-width: 45em) {
+  .grid-container {
+      text-align: left;
+      column-gap: var(--container-gap, 2rem);
+      grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(1rem, 1fr);
+  }
+  
+  .grid-container--home {
+      padding-bottom: max(6rem, 20vh);
+      align-items: end;
+  }
+  
+  .grid-container--home > *:first-child {
+      grid-column: 2;
+  }
+
+  .grid-container--home > *:last-child {
+      grid-column: 3;
+  }
+  
+  .grid-container--destination {
+      justify-items: start;
+       align-content: center;/*For large screens to keep things together */
+      grid-template-areas: 
+          '. alias-title alias-title .'
+          '. alias-image alias-tabs .'
+          '. alias-image alias-content .';
+  }
+  .numbered-title {
+    width: 100vw;
+  }
+  .grid-container--destination > img {
+      max-width: 90%;  
+  }
+  
+  .destination-meta {
+      --gap: min(5vw, 6rem); /* Choose whichever is smaller*/
+      justify-content: start;
+  }
+
 }
