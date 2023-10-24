@@ -527,7 +527,7 @@ body {
     background-image: url(./assets/home/background-home-desktop.jpg);
   }
 }
-/* DESTINAdestination PAGE*/
+/* DESTINATION PAGE*/
 
 .destination {
   background-image: url(./assets/home/background-destination-mobile.jpg);
@@ -543,7 +543,7 @@ body {
     background-image: url(./assets/home/background-destination-desktop.jpg);
   }
 }
-/* cew PAGE*/
+/* CREW PAGE*/
 
 .cew {
   background-image: url(./assets/home/background-cew-mobile.jpg);
@@ -589,7 +589,7 @@ body {
     "alias-content";
 }
 
-.grid-container--destination > img {
+.grid-container--destination > picture {
   grid-area: alias-image;
   max-width: 60%;
 }
@@ -628,7 +628,7 @@ body {
     "alias-slides"
     "alias-content";
 }
-.grid-container--crew > img {
+.grid-container--crew > picture {
   grid-area: alias-image;
   max-width: 60%;
   border-bottom: 1px solid hsl(var(--clr-white) / 0.1);
@@ -704,8 +704,8 @@ body {
   .numbered-title {
     width: 100vw;
   }
-  .grid-container--destination > img,
-  .grid-container--crew > img {
+  .grid-container--destination > picture,
+  .grid-container--crew > picture {
     max-width: 90%;
   }
 
@@ -724,10 +724,14 @@ body {
    .dot-indicators {
     justify-self: self-start;
   } 
-  .grid-container--crew > img { /* to make sure image at the bottom on very big screens*/
+  .grid-container--crew > picture { /* to make sure image at the bottom on very big screens*/
     align-self: self-end;
   }
   /* .grid-container--crew #name {
     width: 75vw;
   } */
+}
+
+[role="tab"]:focus {
+  color:chartreuse
 }

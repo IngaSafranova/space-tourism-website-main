@@ -1,6 +1,8 @@
 fetch("./data.json")
 .then(res => res.json())
-.then(data => console.log(data))
+.then(data => {console.log(data)
+
+populate(data)})
 
 
 
@@ -25,3 +27,7 @@ navToggle.setAttribute("aria-expanded", false)
 //   console.log(visibility)
 //console.log(navToggle.getAttribute('aria-expanded'))
 })
+function populate(data){
+  const role = data.crew[0].role;
+  console.log(role)
+}
