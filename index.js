@@ -1,11 +1,11 @@
-function getData() {fetch("./data.json")
+fetch("./data.json")
 .then(res => res.json())
 .then(data => console.log(data))
-}
-getData()
+
+
 
 const nav = document.querySelector(".primary-navigation");
-console.log(nav)
+// console.log(nav)
 const navToggle = document.querySelector('.mobile-nav-toggle');
 
 // when someone clicks hamburger buton 
