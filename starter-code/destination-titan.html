@@ -21,6 +21,7 @@
       rel="stylesheet"
     />
     <script src="../index.js" defer></script>
+    <script src="../tabs.js" defer></script>
     <title>Frontend Mentor | Space tourism website</title>
   </head>
   <body class="destination">
@@ -45,7 +46,7 @@
           data-visible="'false"
           class="primary-navigation underline-indicators flex"
         >
-          <li class="active">
+          <li >
             <a
               class="ff-sans-cond uppercase text-white letter-spacing-2"
               href="index.html"
@@ -54,10 +55,10 @@
               <span aria-hidden="true">00</span>Home</a
             >
           </li>
-          <li>
+          <li class="active">
             <a
               class="ff-sans-cond uppercase text-white letter-spacing-2"
-              href="destination.html"
+              href="destination-moon.html"
               ><span aria-hidden="true">01</span>Destination</a
             >
           </li>
@@ -104,7 +105,7 @@
           <!-- tabindex makes element focusable, allow or prevent navigation with Tab 
     0 - means focused -1 - not focused-->
           <a
-            aria-selected="true"
+            aria-selected="false"
             role="tab"
             href="destination-moon.html"
             id="tab1"
@@ -134,7 +135,7 @@
             >Europa</a
           >
           <a
-            aria-selected="false"
+            aria-selected="true"
             role="tab"
             href="destination-titan.html"
             id="tab4"

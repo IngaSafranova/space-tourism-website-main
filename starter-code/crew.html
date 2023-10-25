@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Barlow:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="../index.js" defer></script>
+    <script src="../tabs.js" defer></script>
+    <title>Frontend Mentor | Space tourism website</title>
+  </head>
+  <body class="crew">
+    <!-- to help visualy impare people to skip to content with tab -->
+    <a class="skip-to-content" href="#main">Skip to content</a>
+    <header class="primary-header flex ff-sans-cond">
+      <div>
+        <img
+          src="./assets/shared/logo.svg"
+          alt="space tourism logo"
+          class="logo"
+        />
+      </div>
+      <button class="mobile-nav-toggle" aria-controls="primary-navigation">
+        <span class="sr-only" aria-expanded="false">Menu</span>
+      </button>
+      <nav>
+        <!-- data-visible attribute is for javascript use. need to use data-and your own created name -->
+
+        <ul
+          id="primary-navigation"
+          data-visible="'false"
+          class="primary-navigation underline-indicators flex"
+        >
+          <li >
+            <a
+              class="ff-sans-cond uppercase text-white letter-spacing-2"
+              href="index.html"
+            >
+              <!-- for screen readers to ignore numbers -->
+              <span aria-hidden="true">00</span>Home</a
+            >
+          </li>
+          <li>
+            <a
+              class="ff-sans-cond uppercase text-white letter-spacing-2"
+              href="destination-moon.html"
+              ><span aria-hidden="true">01</span>Destination</a
+            >
+          </li>
+          <li class="active">
+            <a
+              class="ff-sans-cond uppercase text-white letter-spacing-2"
+              href="crew.html"
+              ><span aria-hidden="true">02</span>Crew</a
+            >
+          </li>
+          <li>
+            <a
+              class="ff-sans-cond uppercase text-white letter-spacing-2"
+              href="technology.html"
+              ><span aria-hidden="true">03</span>Technology</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main id="main" class="grid-container grid-container--crew flow">
+      <h1 class="numbered-title">
+        <span aria-hidden="true">02</span> Meet your crew
+      </h1>
+      <div
+        class="dot-indicators flex"
+        role="tablist"
+        aria-label="crew member list"
+      >
+        <!-- for people with screen reader to know what they are clicking on -->
+        <button
+          aria-selected="true"
+          tabindex="0"
+          aria-controls="commander-tab"
+          role="tab"
+          data-image="commander-image"
+        >
+          <span class="sr-only">The commander</span>
+        </button>
+        <button
+          aria-selected="false"
+          tabindex="-1"
+          aria-controls="mission-tab"
+          role="tab"
+          data-image="mission-image"
+        >
+          <span class="sr-only">The mission specialist</span>
+        </button>
+        <button
+          aria-selected="false"
+          tabindex="-1"
+          aria-controls="pilot-tab"
+          role="tab"
+          data-image="pilot-image"
+        >
+          <span class="sr-only">The pilot</span>
+        </button>
+        <button
+          aria-selected="false"
+          tabindex="-1"
+          aria-controls="crew-tab"
+          role="tab"
+          data-image="crew-image"
+        >
+          <span class="sr-only">The crew engineer</span>
+        </button>
+      </div>
+      <!-- comander -->
+      <article
+        class="crew-details flow"
+        id="commander-tab"
+        role="tabpanel"
+        tabindex="0"
+      >
+        <h2 id="role" class="fs-600 text-white uppercase ff-serif">
+          Commander
+        </h2>
+        <p id="name" class="ff-serif uppercase text-white fs-700">
+          Douglas Hurley
+        </p>
+
+        <p class="text-accent">
+          Douglas Gerald Hurley is an American engineer, former Marine Corps
+          pilot and former NASA astronaut. He launched into space for the third
+          time as commander of Crew Dragon Demo-2.
+        </p>
+      </article>
+
+      <!-- mission specialist -->
+      <article
+        hidden
+        class="crew-details flow"
+        id="mission-tab"
+        role="tabpanel"
+        tabindex="0"
+      >
+        <h2 id="role" class="fs-600 text-white uppercase ff-serif">
+          Mission Specialist
+        </h2>
+        <p id="name" class="ff-serif uppercase text-white fs-700">
+          Mark Shuttleworth
+        </p>
+
+        <p class="text-accent">
+          Mark Richard Shuttleworth is the founder and CEO of Canonical, the
+          company behind the Linux-based Ubuntu operating system. Shuttleworth
+          became the first South African to travel to space as a space tourist.
+        </p>
+      </article>
+
+      <!-- pilot -->
+
+      <article
+        hidden
+        class="crew-details flow"
+        id="pilot-tab"
+        role="tabpanel"
+        tabindex="0"
+      >
+        <h2 id="role" class="fs-600 text-white uppercase ff-serif">Pilot</h2>
+        <p id="name" class="ff-serif uppercase text-white fs-700">
+          Victor Glover
+        </p>
+
+        <p class="text-accent">
+          Pilot on the first operational flight of the SpaceX Crew Dragon to the
+          International Space Station. Glover is a commander in the U.S. Navy
+          where he pilots an F/A-18.He was a crew member of Expedition 64, and
+          served as a station systems flight engineer.
+        </p>
+      </article>
+      <!-- engineer -->
+      <article
+        hidden
+        class="crew-details flow"
+        id="crew-tab"
+        role="tabpanel"
+        tabindex="0"
+      >
+        <h2 id="role" class="fs-600 text-white uppercase ff-serif">
+          Flight Engineer
+        </h2>
+        <p id="name" class="ff-serif uppercase text-white fs-700">
+          Anousheh Ansari
+        </p>
+
+        <p class="text-accent">
+          Anousheh Ansari is an Iranian American engineer and co-founder of
+          Prodea Systems. Ansari was the fourth self-funded space tourist, the
+          first self-funded woman to fly to the ISS, and the first Iranian in
+          space.
+        </p>
+      </article>
+
+      <!-- hidden attribute did not work on picture, so wrapped them in span -->
+      <span class="picture" id="commander-image">
+      <picture >
+        <source
+          srcset="./assets/crew/image-douglas-hurley.webp"
+          type="image/webp"
+        />
+        <img
+          src="./assets/crew/image-douglas-hurley.png"
+          alt="picture of Douglas Hurley"
+        />
+      </picture>
+    </span>
+      <span hidden class="picture" id="mission-image">
+      <picture  >
+        <source
+          srcset="./assets/crew/image-mark-shuttleworth.webp"
+          type="image/webp"
+        />
+        <img
+          src="./assets/crew/image-mark-shuttleworth.png"
+          alt="picture of Mark Shuttleworth"
+        />
+      </picture>
+    </span>
+    <span hidden class="picture" id="pilot-image">
+      <picture  >
+        <source
+          srcset="./assets/crew/image-victor-glover.webp"
+          type="image/webp"
+        />
+        <img
+          src="./assets/crew/image-victor-glover.png"
+          alt="picture of Victor Glover"
+        />
+      </picture>
+    </span>
+    <span hidden class="picture" id="crew-image">
+      <picture  >
+        <source
+          srcset="./assets/crew/image-anousheh-ansari.webp"
+          type="image/webp"
+        />
+        <img
+          src="./assets/crew/image-anousheh-ansari.png"
+          alt="picture of Anousheh Ansari"
+        />
+      </picture>
+    </span>
+    </main>
+  </body>
+</html>

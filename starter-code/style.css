@@ -594,6 +594,7 @@ body {
 .grid-container--destination > picture {
   grid-area: alias-image;
   max-width: 60%;
+  align-self:start;
 }
 .grid-container--destination > .tab-list {
   grid-area: alias-tabs;
@@ -635,7 +636,7 @@ body {
     "alias-slides"
     "alias-content";
 }
-.grid-container--crew > picture {
+.grid-container--crew > .picture {
   grid-area: alias-image;
   max-width: 60%;
   border-bottom: 1px solid hsl(var(--clr-white) / 0.1);
@@ -694,11 +695,8 @@ body {
   .grid-container {
     text-align: left;
     /* column-gap: var(--container-gap, 2rem); */
-    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
-        1rem,
-        1fr
-      );
-  }
+    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(1rem, 1fr);
+        }
 
   .grid-container--home {
     padding-bottom: max(6rem, 20vh);
@@ -725,7 +723,7 @@ body {
     width: 100vw;
   }
   .grid-container--destination > picture,
-  .grid-container--crew > picture {
+  {
     max-width: 90%;
   }
 
@@ -734,7 +732,8 @@ body {
     justify-content: start;
   }
   .grid-container--crew {
-    --flow-space: 2rem;
+    grid-template-columns: minmax(1rem, 1fr) minmax(0,37) minmax(0,23) minmax(1rem, 1fr);
+    justify-items: start;
     grid-template-areas:
     ". alias-title alias-image ."
     ".  alias-content alias-image ."
@@ -744,14 +743,12 @@ body {
    .dot-indicators {
     justify-self: self-start;
   } 
-  .grid-container--crew > picture { /* to make sure image at the bottom on very big screens*/
+  .grid-container--crew > .picture { /* to make sure image at the bottom on very big screens*/
+    grid-column: span 2;
     align-self: self-end;
+    max-width: 90%;
   }
   /* .grid-container--crew #name {
     width: 75vw;
   } */
 }
-
-[role="tab"]:focus {
-  color:chartreuse
-};
