@@ -20,8 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Barlow:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <script src="../index.js" defer ></script>
-    <script src="../tabs.js" defer ></script>
+    <script src="../index.js" defer></script>
     <title>Frontend Mentor | Space tourism website</title>
   </head>
   <body class="destination">
@@ -79,63 +78,103 @@
         </ul>
       </nav>
     </header>
-    <main id="main" class="grid-container grid-container--destination">
+    <main id="main" class="grid-container grid-container--destination flow">
       <div>
         <h1 class="numbered-title">
           <span aria-hidden="true">01</span> Pick your destination
         </h1>
 
-        <!-- broser will fallback to img element if source not supported -->
-        
-        <!-- Hidden atributes hides it from the screen and screen readers -->
-        <picture >
-          <source srcset="assets/destination/image-mars.webp" type="image/webp">
-          <img src="assets/destination/image-mars.png" alt="the planet mars">
+        <picture>
+          <source
+            srcset="assets/destination/image-mars.webp"
+            type="image/webp"
+          />
+          <img
+            src="assets/destination/image-mars.png"
+            alt="the picture of Mars"
+          />
         </picture>
-        
-        
-    <div class="tab-list underline-indicators flex" role="tablist" aria-label="destination list">
-      <!-- tabindex makes element focusable, allow or prevent navigation with Tab 
-      0 - means focused -1 - not focused-->
-      <a aria-selected="true" role="tab" href="destination.html"  id="tab1"  aria-controls="moon-tab" class="uppercase ff-sans-cond text-accent letter-spacing-2" tabindex="0">Moon</a>
-      <a aria-selected="false" role="tab" href="destination-mars.html"  id="tab2"  aria-controls="mars-tab" class="uppercase ff-sans-cond text-accent letter-spacing-2" tabindex="-1">Mars</a>
-      <a aria-selected="false" role="tab" href="destination-europa.html"  id="tab3"  aria-controls="europa-tab" class="uppercase ff-sans-cond text-accent letter-spacing-2" tabindex="-1">Europa</a>
-      <a aria-selected="false" role="tab" href="destination-titan.html"  id="tab4"  aria-controls="titan-tab" class="uppercase ff-sans-cond text-accent letter-spacing-2" tabindex="-1">Titan</a>
-  </div>
-      
-<!-- Mars -->
-      <article hidden class="destination-info flex flow" id="mars-tab" tabindex="0" role="tabpanel">
+
+        <div
+          id="tab-list"
+          class="tab-list underline-indicators flex"
+          role="tablist"
+          aria-label="destination list"
+        >
+          <!-- tabindex makes element focusable, allow or prevent navigation with Tab 
+    0 - means focused -1 - not focused-->
+          <a
+            aria-selected="true"
+            role="tab"
+            href="destination-moon.html"
+            id="tab1"
+            aria-controls="moon-tab"
+            class="uppercase ff-sans-cond text-accent letter-spacing-2"
+            tabindex="0"
+            >Moon</a
+          >
+          <a
+            aria-selected="false"
+            role="tab"
+            href="destination-mars.html"
+            id="tab2"
+            aria-controls="mars-tab"
+            class="uppercase ff-sans-cond text-accent letter-spacing-2"
+            tabindex="-1"
+            >Mars</a
+          >
+          <a
+            aria-selected="false"
+            role="tab"
+            href="destination-europa.html"
+            id="tab3"
+            aria-controls="europa-tab"
+            class="uppercase ff-sans-cond text-accent letter-spacing-2"
+            tabindex="-1"
+            >Europa</a
+          >
+          <a
+            aria-selected="false"
+            role="tab"
+            href="destination-titan.html"
+            id="tab4"
+            aria-controls="titan-tab"
+            class="uppercase ff-sans-cond text-accent letter-spacing-2"
+            tabindex="-1"
+            >Titan</a
+          >
+        </div>
+      </div>
+      <article class="destination-info flex flow">
         <h2 class="uppercase fs-800 ff-serif text-white">Mars</h2>
 
         <p
           class="text-accent"
-          class="text-accent ff-sans-cond fs-200 letter-spacing-3"
+          class="text-accent ff-sans-cond ff-300 letter-spacing-3"
         >
-        Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, 
-        the tallest planetary mountain in our solar system. It’s two and a half times 
-        the size of Everest!
-      
+          Don’t forget to pack your hiking boots. You’ll need them to tackle
+          Olympus Mons, the tallest planetary mountain in our solar system. It’s
+          two and a half times the size of Everest!
         </p>
         <div class="destination-meta flex">
           <div>
             <h3
-              class="text-accent uppercase ff-sans-cond fs-200 letter-spacing-3"
+              class="text-accent uppercase ff-sans-cond ff-300 letter-spacing-3"
             >
               Avg. distance
             </h3>
-            <p class="text-white ff-serif uppercase"> 225 mil. km</p>
+            <p class="text-white ff-serif ff-500 uppercase">225 mil. km</p>
           </div>
           <div>
             <h3
-              class="text-accent uppercase ff-sans-cond fs-200 letter-spacing-3"
+              class="text-accent uppercase ff-sans-cond ff-300 letter-spacing-3"
             >
               Est. travel time
             </h3>
-            <p class="text-white ff-serif uppercase"> 9 months</p>
+            <p class="text-white ff-serif ff-500 uppercase">9 months</p>
           </div>
         </div>
       </article>
-
     </main>
   </body>
 </html>

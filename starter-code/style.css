@@ -598,6 +598,7 @@ body {
 .grid-container--destination > .tab-list {
   grid-area: alias-tabs;
   margin-top: 2rem;
+  padding-bottom: 0;
 }
 
 .grid-container--destination > .destination-info {
@@ -605,8 +606,11 @@ body {
 }
 .destination-info {
   flex-direction: column;
-  width: 80%;
+  width: 85%;
+  padding-top: 0;
+  margin-top: 0;
   justify-content: center;
+  overflow: hidden;
 }
 
 .destination-meta {
@@ -619,6 +623,7 @@ body {
 .destination-meta p {
   font-size: 1.75rem;
 }
+
 
 /* Crew layout*/
 
@@ -651,12 +656,25 @@ body {
   padding-bottom: 1rem;
 }
 
+
+/**/
 @media (min-width: 35rem) {
   .numbered-title {
     justify-self: start;
     margin-top: 2rem;
   }
-
+  .grid-container--destination {
+    --flow-space: 2rem;
+    grid-template-areas:
+      "alias-title"
+      "alias-image"
+      "alias-tabs"
+      "alias-content";
+  }
+.grid-container--destination > .tab-list {
+  margin-top: 1rem;
+  justify-content:center;
+}  
   .destination-meta {
     flex-direction: row;
     justify-content: space-evenly;
@@ -736,4 +754,4 @@ body {
 
 [role="tab"]:focus {
   color:chartreuse
-}
+};
