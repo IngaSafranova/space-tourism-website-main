@@ -1,37 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Space tourism website</title>
-</head>
-<body>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
 
-  00 Home
-  01 Destination
-  02 Crew
-  03 Technology
+    <link rel="stylesheet" href="style.css" />
 
-  01 Pick your destination
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Barlow:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="../index.js" defer ></script>
+    <script src="../tabs.js" defer ></script>
+    <title>Frontend Mentor | Space tourism website</title>
+  </head>
+  <body class="destination">
+    <!-- to help visualy impare people to skip to content with tab -->
+    <a class="skip-to-content" href="#main">Skip to content</a>
+    <header class="primary-header flex ff-sans-cond">
+      <div>
+        <img
+          src="./assets/shared/logo.svg"
+          alt="space tourism logo"
+          class="logo"
+        />
+      </div>
+      <button class="mobile-nav-toggle" aria-controls="primary-navigation">
+        <span class="sr-only" aria-expanded="false">Menu</span>
+      </button>
+      <nav>
+        <!-- data-visible attribute is for javascript use. need to use data-and your own created name -->
 
-  Moon
-  Mars
-  Europa
-  Titan
+        <ul
+          id="primary-navigation"
+          data-visible="'false"
+          class="primary-navigation underline-indicators flex"
+        >
+          <li class="active">
+            <a
+              class="ff-sans-cond uppercase text-white letter-spacing-2"
+              href="index.html"
+            >
+              <!-- for screen readers to ignore numbers -->
+              <span aria-hidden="true">00</span>Home</a
+            >
+          </li>
+          <li>
+            <a
+              class="ff-sans-cond uppercase text-white letter-spacing-2"
+              href="destination.html"
+              ><span aria-hidden="true">01</span>Destination</a
+            >
+          </li>
+          <li>
+            <a
+              class="ff-sans-cond uppercase text-white letter-spacing-2"
+              href="crew.html"
+              ><span aria-hidden="true">02</span>Crew</a
+            >
+          </li>
+          <li>
+            <a
+              class="ff-sans-cond uppercase text-white letter-spacing-2"
+              href="technology.html"
+              ><span aria-hidden="true">03</span>Technology</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main id="main" class="grid-container grid-container--destination">
+      <div>
+        <h1 class="numbered-title">
+          <span aria-hidden="true">01</span> Pick your destination
+        </h1>
 
-  Mars
+        <!-- broser will fallback to img element if source not supported -->
+        
+        <!-- Hidden atributes hides it from the screen and screen readers -->
+        <picture >
+          <source srcset="assets/destination/image-mars.webp" type="image/webp">
+          <img src="assets/destination/image-mars.png" alt="the planet mars">
+        </picture>
+        
+        
+    <div class="tab-list underline-indicators flex" role="tablist" aria-label="destination list">
+      <!-- tabindex makes element focusable, allow or prevent navigation with Tab 
+      0 - means focused -1 - not focused-->
+      <a aria-selected="true" role="tab" href="destination.html"  id="tab1"  aria-controls="moon-tab" class="uppercase ff-sans-cond text-accent letter-spacing-2" tabindex="0">Moon</a>
+      <a aria-selected="false" role="tab" href="destination-mars.html"  id="tab2"  aria-controls="mars-tab" class="uppercase ff-sans-cond text-accent letter-spacing-2" tabindex="-1">Mars</a>
+      <a aria-selected="false" role="tab" href="destination-europa.html"  id="tab3"  aria-controls="europa-tab" class="uppercase ff-sans-cond text-accent letter-spacing-2" tabindex="-1">Europa</a>
+      <a aria-selected="false" role="tab" href="destination-titan.html"  id="tab4"  aria-controls="titan-tab" class="uppercase ff-sans-cond text-accent letter-spacing-2" tabindex="-1">Titan</a>
+  </div>
+      
+<!-- Mars -->
+      <article hidden class="destination-info flex flow" id="mars-tab" tabindex="0" role="tabpanel">
+        <h2 class="uppercase fs-800 ff-serif text-white">Mars</h2>
 
-  Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, 
-  the tallest planetary mountain in our solar system. It’s two and a half times 
-  the size of Everest!
+        <p
+          class="text-accent"
+          class="text-accent ff-sans-cond fs-200 letter-spacing-3"
+        >
+        Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, 
+        the tallest planetary mountain in our solar system. It’s two and a half times 
+        the size of Everest!
+      
+        </p>
+        <div class="destination-meta flex">
+          <div>
+            <h3
+              class="text-accent uppercase ff-sans-cond fs-200 letter-spacing-3"
+            >
+              Avg. distance
+            </h3>
+            <p class="text-white ff-serif uppercase"> 225 mil. km</p>
+          </div>
+          <div>
+            <h3
+              class="text-accent uppercase ff-sans-cond fs-200 letter-spacing-3"
+            >
+              Est. travel time
+            </h3>
+            <p class="text-white ff-serif uppercase"> 9 months</p>
+          </div>
+        </div>
+      </article>
 
-  Avg. distance
-  225 mil. km
-
-  Est. travel time
-  9 months
-</body>
+    </main>
+  </body>
 </html>
