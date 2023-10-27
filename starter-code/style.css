@@ -448,7 +448,7 @@ Sellect all but not first child */
 }
 .underline-indicators > * {
   /* using * instead of <li> so its easy to reuse */
-  padding: var(--underline-gap, .5rem) 0;
+  padding: var(--underline-gap, 0.5rem) 0;
   cursor: pointer;
   border: 0;
   border-bottom: 0.2rem solid hsl(var(--clr-white) / 0);
@@ -548,20 +548,36 @@ body {
 /* CREW PAGE*/
 
 .cew {
-  background-image: url(./assets/home/background-cew-mobile.jpg);
+  background-image: url(./assets/crew/background-crew-mobile.jpg);
 }
 @media (min-width: 35rem) {
   .cew {
     background-position: center center;
-    background-image: url(./assets/home/background-cew-tablet.jpg);
+    background-image: url(./assets/crew/background-crew-tablet.jpg);
   }
 }
 @media (min-width: 45rem) {
   .cew {
-    background-image: url(./assets/home/background-cew-desktop.jpg);
+    background-image: url(./assets/crew/background-crew-desktop.jpg);
   }
 }
 
+/* TECHNOLOGY PAGE*/
+
+.technology {
+  background-image: url(./assets/technology/background-technology-mobile.jpg);
+}
+@media (min-width: 35rem) {
+  .cew {
+    background-position: center center;
+    background-image: url(./assets/technology/background-technology-tablet.jpg);
+  }
+}
+@media (min-width: 45rem) {
+  .cew {
+    background-image: url(./assets/technology/background-technology-desktop.jpg);
+  }
+}
 /* LAYOUT */
 
 .grid-container {
@@ -594,7 +610,7 @@ body {
 .grid-container--destination > picture {
   grid-area: alias-image;
   max-width: 60%;
-  align-self:start;
+  align-self: start;
 }
 .grid-container--destination > .tab-list {
   grid-area: alias-tabs;
@@ -625,7 +641,6 @@ body {
   font-size: 1.75rem;
 }
 
-
 /* Crew layout*/
 
 .grid-container--crew {
@@ -650,15 +665,43 @@ body {
 }
 .grid-container--crew #role {
   color: hsl(var(--clr-white) / 0.5);
-  padding-bottom: .5rem;
+  padding-bottom: 0.5rem;
 }
 
 .grid-container--crew #name {
   padding-bottom: 1rem;
 }
 
+/* Technology layout */
 
-/**/
+.grid-container--technology {
+  --flow-space: 2rem;
+  padding-inline: 0;
+  margin-inline: 0;
+
+  grid-template-areas:
+    "alias-title"
+    "alias-image"
+    "alias-tabs"
+    "alias-content";
+}
+
+.grid-container--technology > .picture {
+  width: 100%;
+}
+.grid-container--technology > .numbered-title {
+  margin-inline: 2rem;
+  grid-area: alias-title;
+  margin-bottom: 1.5rem;
+}
+.grid-container--technology > .number-indicators {
+  grid-area: alias-tabs;
+  padding-block: 1rem;
+}
+.grid-container--technology > .technology-details {
+  grid-area: alias-content;
+  max-width: 50ch;
+}
 @media (min-width: 35rem) {
   .numbered-title {
     justify-self: start;
@@ -672,10 +715,10 @@ body {
       "alias-tabs"
       "alias-content";
   }
-.grid-container--destination > .tab-list {
-  margin-top: 1rem;
-  justify-content:center;
-}  
+  .grid-container--destination > .tab-list {
+    margin-top: 1rem;
+    justify-content: center;
+  }
   .destination-meta {
     flex-direction: row;
     justify-content: space-evenly;
@@ -688,15 +731,17 @@ body {
       "alias-slides"
       "alias-image";
   }
-  
 }
 
 @media (min-width: 45em) {
   .grid-container {
     text-align: left;
     /* column-gap: var(--container-gap, 2rem); */
-    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(1rem, 1fr);
-        }
+    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
+        1rem,
+        1fr
+      );
+  }
 
   .grid-container--home {
     padding-bottom: max(6rem, 20vh);
@@ -722,8 +767,7 @@ body {
   .numbered-title {
     width: 100vw;
   }
-  .grid-container--destination > picture,
-  {
+  .grid-container--destination > picture {
     max-width: 90%;
   }
 
@@ -732,18 +776,21 @@ body {
     justify-content: start;
   }
   .grid-container--crew {
-    grid-template-columns: minmax(1rem, 1fr) minmax(0,37) minmax(0,23) minmax(1rem, 1fr);
+    grid-template-columns: minmax(1rem, 1fr) minmax(0, 37) minmax(0, 23) minmax(
+        1rem,
+        1fr
+      );
     justify-items: start;
     grid-template-areas:
-    ". alias-title alias-image ."
-    ".  alias-content alias-image ."
-    ". alias-slides alias-image ."
-   ;
+      ". alias-title alias-image ."
+      ".  alias-content alias-image ."
+      ". alias-slides alias-image .";
   }
-   .dot-indicators {
+  .dot-indicators {
     justify-self: self-start;
-  } 
-  .grid-container--crew > .picture { /* to make sure image at the bottom on very big screens*/
+  }
+  .grid-container--crew > .picture {
+    /* to make sure image at the bottom on very big screens*/
     grid-column: span 2;
     align-self: self-end;
     max-width: 90%;
@@ -751,4 +798,47 @@ body {
   /* .grid-container--crew #name {
     width: 75vw;
   } */
+  .grid-container--technology {
+    grid-template-columns: repeat(5, 1fr);
+    margin-bottom: minmax(10rem, 10vh);
+    grid-template-areas:
+      " alias-title alias-title alias-title alias-title alias-title"
+      " alias-tabs alias-content alias-content alias-image alias-image"
+      " alias-tabs alias-content alias-content alias-image alias-image";
+  }
+  .grid-container--technology > .number-indicators {
+    flex-direction: column;
+    justify-self: center;
+    margin-block: 1rem;
+    align-self: center;
+    /* grid-area: alias-tabs; */
+    /* grid-row: 2/4;
+    grid-column: 1/2;*/
+  }
+  .grid-container--technology > .numbered-title {
+    /* grid-row: 1/2;
+    grid-column: 1/3; */
+    max-width: fit-content;
+    margin-left: 6rem;
+    
+    /* grid-area: alias-title; */
+  }
+  .grid-container--technology > .technology-details {
+    place-self: center;
+    /* grid-area: alias-content; */
+    grid-row: 2/4;
+    grid-column: 2/4;
+    width: 45ch;
+  }
+  .grid-container--technology > .picture {
+    grid-area: alias-image;
+    justify-self: stretch;
+    align-self: stretch;
+    height: 80%;
+    width: 100%;
+  }
+  .grid-container--technology > .picture img {
+    height: 100%;
+    width: 100%;
+  }
 }
