@@ -609,8 +609,8 @@ body {
 
 .grid-container--destination > picture {
   grid-area: alias-image;
-  max-width: 60%;
-  align-self: start;
+max-width: 60%;
+   align-self: start;
 }
 .grid-container--destination > .tab-list {
   grid-area: alias-tabs;
@@ -736,7 +736,7 @@ body {
 @media (min-width: 45em) {
   .grid-container {
     text-align: left;
-    /* column-gap: var(--container-gap, 2rem); */
+     column-gap: var(--container-gap, 2rem); 
     grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
         1rem,
         1fr
@@ -757,20 +757,23 @@ body {
   }
 
   .grid-container--destination {
+  
     justify-items: start;
-    align-content: center; /*For large screens to keep things together */
-    grid-template-areas:
+    align-content: start; /*For large screens to keep things together */
+     grid-template-areas:
       ". alias-title alias-title ."
       ". alias-image alias-tabs ."
       ". alias-image alias-content .";
+      
   }
   .numbered-title {
     width: 100vw;
+    
   }
   .grid-container--destination > picture {
     max-width: 90%;
-  }
-
+}
+  
   .destination-meta {
     --gap: min(5vw, 6rem); /* Choose whichever is smaller*/
     justify-content: start;
@@ -820,20 +823,20 @@ body {
     grid-column: 1/3; */
     max-width: fit-content;
     margin-left: 6rem;
-    
+
     /* grid-area: alias-title; */
   }
   .grid-container--technology > .technology-details {
-    place-self: center;
+    justify-self: start;
     /* grid-area: alias-content; */
     grid-row: 2/4;
     grid-column: 2/4;
-    width: 45ch;
+    width: 50ch;
   }
   .grid-container--technology > .picture {
     grid-area: alias-image;
-    justify-self: stretch;
-    align-self: stretch;
+    justify-self: center;
+    align-self: start;
     height: 80%;
     width: 100%;
   }
