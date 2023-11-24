@@ -734,6 +734,9 @@ max-width: 60%;
 }
 
 @media (min-width: 45em) {
+  .primary-navigation {
+    padding-right:10em;
+  }
   .grid-container {
     text-align: left;
      column-gap: var(--container-gap, 2rem); 

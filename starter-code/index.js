@@ -1,9 +1,4 @@
-fetch("./data.json")
-.then(res => res.json())
-.then(data => {console.log(data)
-
-populate(data)})
-
+console.log('hi')
 
 
 const nav = document.querySelector(".primary-navigation");
